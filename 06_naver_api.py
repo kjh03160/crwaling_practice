@@ -4,8 +4,8 @@ import os
 import sys
 import urllib.request
 
-client_id = "lBPb8jMB4N1ngZP19Ls3"
-client_secret = "3crCyo9t2v"
+client_id = ""
+client_secret = ""
 encText = urllib.parse.quote("에어컨")
 url = "https://openapi.naver.com/v1/search/blog?query=" + encText # json 결과
 # url = "https://openapi.naver.com/v1/search/blog.xml?query=" + encText # xml 결과
