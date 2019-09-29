@@ -9,7 +9,7 @@ id = browser.find_element_by_id("usr_id")
 id.send_keys("201600786")
 
 pw = browser.find_element_by_id("usr_pwd")
-pw.send_keys("hwaitaeng1")
+pw.send_keys("")
 
 login_bt=browser.find_element_by_class_name('btntype')
 login_bt.click()
