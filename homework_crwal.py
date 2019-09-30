@@ -37,7 +37,7 @@ for tr in range(1, 6):
             break
         temp = now_date
         date_click.click()
-        time.sleep(1)
+        # time.sleep(1)
         main_page = browser.page_source
 
         parse = bs(main_page, 'html.parser')
