@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup as bs
 from selenium import webdriver
 import datetime
+
+
+
 id_input = input("학번을 입력하세요 : ")
 pw_input = input("비밀번호를 입력하세요 : ")
 
@@ -89,8 +92,10 @@ try:
 except:
     pass
 
-
-for i in result:
-    for j in i:
-        print(j)
-    print()
+if len(result) == 0:
+    print("과제가 없습니다.")
+else:
+    for i in result:
+        for j in i:
+            print(j)
+        print()
