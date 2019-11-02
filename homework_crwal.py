@@ -40,7 +40,13 @@ day_31 = [1, 3, 5, 7, 8, 10, 12]
 
 
 for i in range(1, 15):
-    now_div = browser.find_element_by_id(str(now_month) + '_' + str(now_day))
+    try:
+        now_div = browser.find_element_by_id(str(now_month) + '_' + str(now_day))
+    except:
+        move_inputs = browser.find_elements_by_class_name("move_schedule")
+        move_inputs[-1].click()
+        now_div = browser.find_element_by_id(str(now_month) + '_' + str(now_day))
+
     now_div.click()
     main = browser.page_source
     parse = bs(main, 'html.parser')
