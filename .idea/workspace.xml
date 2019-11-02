@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="50d148be-27d0-4232-9854-8f83da2af092" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework_crwal.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework_crwal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08_refactoring.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homwork_crwal_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/homwork_crwal_GUI.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +41,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.homework_crwal">
+  <component name="RunManager" selected="Python.homwork_crwal_GUI">
     <configuration name="08_refactoring" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="웹 크롤링" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -149,9 +149,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.homwork_crwal_GUI" />
         <item itemvalue="Python.homework_crwal" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.homwork_crwal_GUI" />
         <item itemvalue="Python.10_naver_caller" />
         <item itemvalue="Python.08_refactoring" />
       </list>
