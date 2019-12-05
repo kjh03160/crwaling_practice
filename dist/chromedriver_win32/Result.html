@@ -1,0 +1,353 @@
+
+        <!DOCTYPE html>
+        <html lang="ko">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                        <style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+    @font-face { font-family: 'silgothic'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/silgothic.woff') format('woff'); font-weight: normal; font-style: normal; }
+    @font-face { font-family: 'DungGeunMo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff'); font-weight: normal; font-style: normal; }
+    
+    html,
+    body,
+    .background {
+      height : 110%;
+      margin: 0;
+    }
+
+    html {
+      background: #fff;
+
+    }
+
+    body {
+      padding: 10px;
+
+      background: #eee;
+      background: linear-gradient(0deg, rgba(0, 0, 200, 0.2), rgba(0, 0, 200, 0));
+
+      -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    }
+
+    .background {
+      /* width: 130%; */
+
+    /* height: 120% !important; */
+      background: #eee;
+      background: linear-gradient(120deg, rgba(50, 150, 100, 0.2), rgba(0, 0, 100, 0));
+    }
+
+    *,
+    *:before,
+    *:after {
+      margin: 0;
+      padding: 0;
+      /* border: 0; */
+      outline: 0;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    table {
+      width: 78% !important;
+      font-family: 'Open Sans', Helvetica;
+      color: #efefef;
+      text-align: center;
+      /* margin: auto; */
+      padding: auto;
+      margin-top: 10px;
+      /* margin-bottom: 10px; */
+      position: relative;
+      float: left;
+
+    }
+
+    a {
+      color: #2f3b72;
+      text-decoration: none
+    }
+
+    table tr:nth-child(2n) {
+      background: #eff0f1;
+    }
+
+    table tr:nth-child(2n+3) {
+      background: #fff;
+    }
+
+    td {
+      color: #2f3b72;
+      font-weight: 1000;
+
+      font-family: 'DungGeunMo';
+      font-size: 12px !important;
+    }
+
+    table th,
+    table td {
+      padding: 0.7em;
+      width: 10em;
+    }
+
+    .days,
+    .time {
+      background: #34495e;
+      text-transform: uppercase;
+      font-size: 0.8em;
+      text-align: center;
+    }
+
+    #left_side {
+      width: 3em !important;
+      background: #34495e;
+      font-size: 0.6em;
+      text-align: center;
+    }
+
+    /* Add this attribute to the element that needs a tooltip */
+    [data-tooltip] {
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    /* Hide the tooltip content by default */
+    [data-tooltip]:before,
+    [data-tooltip]:after {
+      visibility: hidden;
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+      opacity: 0;
+      pointer-events: none;
+      -moz-transition: ease 0.5s all;
+      -o-transition: ease 0.5s all;
+      -webkit-transition: ease 0.5s all;
+      transition: ease 0.5s all;
+    }
+
+    /* Position tooltip above the element */
+    [data-tooltip]:before {
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      margin-bottom: 5px;
+      margin-left: -80px;
+      padding: 7px;
+      width: 160px;
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      border-radius: 6px;
+      background-color: black;
+      color: #fff;
+      content: attr(data-tooltip);
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    /* Triangle hack to make tooltip look like a speech bubble */
+    [data-tooltip]:after {
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      margin-left: -5px;
+      width: 0;
+      border-top: 5px solid black;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      content: " ";
+      font-size: 0;
+      line-height: 0;
+    }
+
+    /* Show tooltip content on hover */
+    [data-tooltip]:hover:before,
+    [data-tooltip]:hover:after {
+      visibility: visible;
+      bottom: 90%;
+      filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+      opacity: 1;
+    }
+    #container{
+      position: relative;
+      float: left;
+      margin-left: 10px;
+  width: 20%;
+  background: rgba(0, 0, 200, 0.2);
+  padding: 25px;
+  border: 2px solid #fff;
+  border-radius: 40px/50px;
+  background-clip: padding-box;
+  text-align: center;
+  opacity: 50%;
+  font-family: 'silgothic';
+    font-size: 1em;
+    color: black;
+    font-weight: 1000;
+    white-space: nowrap;
+    }
+  </style>
+          <title>Time Table</title>
+        </head>
+        
+        
+        
+        
+        <body>
+          <!-- <div class='tab'> -->
+          <table border='0' cellpadding='0' cellspacing='0'>
+            <tr class='days'>
+              <th id='left_side'>#</th>
+        
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+        
+        
+            </tr>
+        
+                    <tr>
+                      <th id='left_side'>1</th>
+                      <td data-tooltip='4.7'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01122001">영어학개론(2)<br>(이성하)</a></td>
+                      <td data-tooltip='없음'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01259201">Critical Reading and Writing (2)<br>(Robert Otto Davis)</a></td>
+                      <td ></td>
+                      <td data-tooltip='3 / 없음'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01277201">Becoming a Great Orator (2)<br>(Robert Otto Davis)</a><br><br>
+<a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01259203">Critical Reading and Writing (2)<br>(안규동)</a></td>
+                      <td data-tooltip='없음'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=F05458801">컴퓨터네트워크<br>(이병욱)</a></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>2</th>
+                      <td data-tooltip='4.7'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01122001">영어학개론(2)<br>(이성하)</a></td>
+                      <td data-tooltip='없음'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01259201">Critical Reading and Writing (2)<br>(Robert Otto Davis)</a></td>
+                      <td ></td>
+                      <td data-tooltip='3 / 없음'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01277201">Becoming a Great Orator (2)<br>(Robert Otto Davis)</a><br><br>
+<a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01259203">Critical Reading and Writing (2)<br>(안규동)</a></td>
+                      <td data-tooltip='없음'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=F05458801">컴퓨터네트워크<br>(이병욱)</a></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>3</th>
+                      <td data-tooltip='4.7 / 1.47'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01122001">영어학개론(2)<br>(이성하)</a><br><br>
+<a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=T05202201">컴퓨터프로그래밍2<br>(고석훈)</a></td>
+                      <td ></td>
+                      <td data-tooltip='1.47'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=T05202201">컴퓨터프로그래밍2<br>(고석훈)</a></td>
+                      <td ></td>
+                      <td data-tooltip='없음'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=F05458801">컴퓨터네트워크<br>(이병욱)</a></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>4</th>
+                      <td data-tooltip='1.47'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=T05202201">컴퓨터프로그래밍2<br>(고석훈)</a></td>
+                      <td ></td>
+                      <td data-tooltip='1.47'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=T05202201">컴퓨터프로그래밍2<br>(고석훈)</a></td>
+                      <td data-tooltip='없음 / 3'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A10202101">영어데이터처리를위한프로그래밍(2)<br>(박정식)</a><br><br>
+<a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01122002">영어학개론(2)<br>(Brandon Robert Beamer)</a></td>
+                      <td ></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>5</th>
+                      <td ></td>
+                      <td data-tooltip='1'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01259202">Critical Reading and Writing (2)<br>(Garrett Dehond)</a></td>
+                      <td ></td>
+                      <td data-tooltip='없음 / 없음 / 3'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01277202">Becoming a Great Orator (2)<br>(Nicholas Yohan Duvernay)</a><br><br>
+<a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A10202101">영어데이터처리를위한프로그래밍(2)<br>(박정식)</a><br><br>
+<a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01122002">영어학개론(2)<br>(Brandon Robert Beamer)</a></td>
+                      <td ></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>6</th>
+                      <td ></td>
+                      <td data-tooltip='1'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01259202">Critical Reading and Writing (2)<br>(Garrett Dehond)</a></td>
+                      <td ></td>
+                      <td data-tooltip='없음 / 없음 / 3'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01277202">Becoming a Great Orator (2)<br>(Nicholas Yohan Duvernay)</a><br><br>
+<a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A10202101">영어데이터처리를위한프로그래밍(2)<br>(박정식)</a><br><br>
+<a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01122002">영어학개론(2)<br>(Brandon Robert Beamer)</a></td>
+                      <td ></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>7</th>
+                      <td ></td>
+                      <td data-tooltip='3.64'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=V44303501">자료구조<br>(신찬수)</a></td>
+                      <td ></td>
+                      <td data-tooltip='없음'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01224301">영국의이해<br>(이현송)</a></td>
+                      <td data-tooltip='5'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=V44456701">데이터베이스<br>(박상원)</a></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>8</th>
+                      <td ></td>
+                      <td data-tooltip='3.64'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=V44303501">자료구조<br>(신찬수)</a></td>
+                      <td ></td>
+                      <td data-tooltip='없음'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=A01224301">영국의이해<br>(이현송)</a></td>
+                      <td data-tooltip='5'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=V44456701">데이터베이스<br>(박상원)</a></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>9</th>
+                      <td ></td>
+                      <td data-tooltip='3.64'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=V44303501">자료구조<br>(신찬수)</a></td>
+                      <td data-tooltip='2.6'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=V44301701">컴퓨터구조<br>(조상영)</a></td>
+                      <td ></td>
+                      <td data-tooltip='5'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=V44456701">데이터베이스<br>(박상원)</a></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>10</th>
+                      <td ></td>
+                      <td ></td>
+                      <td data-tooltip='2.6'><a href="https://wis.hufs.ac.kr/src08/jsp/lecture/syllabus.jsp?mode=print&ledg_year=2019&ledg_sessn=3&org_sect=A&lssn_cd=V44301701">컴퓨터구조<br>(조상영)</a></td>
+                      <td ></td>
+                      <td ></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>11</th>
+                      <td ></td>
+                      <td ></td>
+                      <td ></td>
+                      <td ></td>
+                      <td ></td>
+                    </tr>
+                        
+
+                    <tr>
+                      <th id='left_side'>12</th>
+                      <td ></td>
+                      <td ></td>
+                      <td ></td>
+                      <td ></td>
+                      <td ></td>
+                    </tr>
+                            
+       </table>
+      <!-- </div> -->
+      <div id='container'>
+        <p>강의계획서 - 강의명 클릭!</p>
+        <p>강의평 - 강의명에 마우스 올리기!</p>
+        
+      </div>
+    </body>
+    
+    </html>
+    
